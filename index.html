@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>代码截图，源代码生成图片工具 </title>
+    <script src="static/js/main1.js"></script>
+    <script src="static/js/main2.js"></script>
+    <link rel="stylesheet" href="static/css/main1.css">
+    <link rel="stylesheet" href="static/css/main2.css">
+    <link rel="stylesheet" href="static/css/main3.css">
+</head>
+<body>
+<main id="pjax-container">
+    <section class="content-container">
+        <div class="container">
+            <div class="tool-body">
+                <section class="tool-content-container">
+                    <div class="tool-content-wrap bg-black">
+                        <div class="row row-layout">
+                            <div class="col-xs-12 col-md-9">
+                                <div class="row code-snapshot-top-option-container">
+                                    <div class="top-option-item">
+                                        <div class="row middle-xs"><label><i class="iconfont icon-palette"></i>
+                                            高亮主题</label>
+                                            <div><select class="form-control form-control-inverse" id="theme">
+                                                <option value="3024-day">3024 Day</option>
+                                                <option value="3024-night">3024 Night</option>
+                                                <option value="dracula">Dracula</option>
+                                                <option value="eclipse">Eclipse</option>
+                                                <option value="duotone-dark">Duotone Dark</option>
+                                                <option value="duotone-light">Duotone Light</option>
+                                                <option value="idea">Idea</option>
+                                                <option value="lucario">Lucario</option>
+                                                <option value="material">Material</option>
+                                                <option value="monokai">Monokai</option>
+                                                <option value="nord">Nord</option>
+                                                <option value="oceanic-next" selected="">Oceanic Next</option>
+                                                <option value="seti">Seti</option>
+                                                <option value="shadowfox">Shadowfox</option>
+                                                <option value="solarized dark">Solarized Dark</option>
+                                                <option value="solarized light">Solarized Light</option>
+                                                <option value="twilight">Twilight</option>
+                                                <option value="yonce">Yonce</option>
+                                            </select></div>
+                                        </div>
+                                    </div>
+                                    <div class="top-option-item">
+                                        <div class="row middle-xs"><label><i class="iconfont icon-code"></i>
+                                            程序语言</label>
+                                            <div><select class="form-control form-control-inverse" id="language">
+                                                <option value="auto">自动识别</option>
+                                            </select></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="source-code-wrap screenshotable">
+                                    <div class="source-code-window hidden">
+                                        <div class="win-control"><i></i><i></i><i></i></div><textarea
+                                            class="form-control" id="source-code" rows="12" >
+import java.util.Random;
+
+public class Code {
+    public static String rand() {
+        String sources = "0123456789"; // 注释
+        Random rand = new Random();
+        StringBuffer flag = new StringBuffer();
+        for (int j = 0; j < 6; j++) {
+            flag.append(sources.charAt(rand.nextInt(9)) + "");
+        }
+        return flag.toString();
+    }
+}</textarea>
+
+                                    </div>
+                                    <div class="loading-box editor-loading">
+                                        <div class="loading-rect"><i></i><i></i><i></i><i></i><i></i></div>
+                                        <span>正在初始化编辑器...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xs-12 col-md-3">
+                                <div class="sticker">
+                                    <div class="code-snapshot-option-container">
+                                        <!-- <h3 class="option-title"><i class="iconfont icon-setting-o"></i> 选项</h3> -->
+                                        <div class="code-snapshot-option-wrap">
+                                            <div class="form-group form-group-item-center">
+                                                <div class="row"><label
+                                                        class="col-xs-4 col-md-4 align-self-start1">背景色</label>
+                                                    <div class="col-xs-8 col-md-8"><select id="backcolorPicker"
+                                                                                           class="double-rainbow-picker dr-wrapper-inverse">
+                                                        <option value="" selected="">transparent</option>
+                                                        <option value="#abb7c6">#abb7c6</option>
+                                                        <option value="#bbbbb9">#bbbbb9</option>
+                                                        <option value="#607d8b">#607d8b</option>
+                                                        <option value="#b5a290">#b5a290</option>
+                                                        <option value="#f5e51e">#f5e51e</option>
+                                                        <option value="#4b50af">#4b50af</option>
+                                                        <option value="#7948b9">#7948b9</option>
+                                                        <option value="#1f81de">#1f81de</option>
+                                                        <option value="#f9edd5">#f9edd5</option>
+                                                        <option value="#deab62">#deab62</option>
+                                                        <option value="#c9e7f4">#c9e7f4</option>
+                                                        <option value="#eaf6dd">#eaf6dd</option>
+                                                        <option value="#e4dbd7">#e4dbd7</option>
+                                                        <option value="#4caf50">#4caf50</option>
+                                                        <option value="#009688">#009688</option>
+                                                        <option value="#795548">#795548</option>
+                                                        <option value="#ff5722">#ff5722</option>
+                                                        <option value="#c01f21">#c01f21</option>
+                                                        <option value="#e91e63">#e91e63</option>
+                                                        
+                                                    </select></div>
+                                                </div>
+                                                <div class="row"><label
+                                                        class="col-xs-4 col-md-4 align-self-start">代码窗口</label>
+                                                    <div class="col-xs-8 col-md-8">
+                                                        <div class="custom-input-list"><label
+                                                                class="custom-input-item custom-input-item-sm custom-input-item-inverse"><input
+                                                                type="checkbox" id="option-window-button"
+                                                                value="1"
+                                                                checked=""><span>显示窗口按钮</span></label><label
+                                                                class="custom-input-item custom-input-item-sm custom-input-item-inverse"><input
+                                                                type="checkbox" id="option-window-border-radius"
+                                                                value="1"
+                                                                checked=""><span>使用圆角效果</span></label><label
+                                                                class="custom-input-item custom-input-item-sm custom-input-item-inverse"><input
+                                                                type="checkbox" id="option-window-box-shadow"
+                                                                value="1" checked=""><span>显示阴影效果</span></label>
+                                                                <label
+                                                                class="custom-input-item custom-input-item-sm custom-input-item-inverse"><input
+                                                                type="checkbox" id="option-line-number"
+                                                                value="1"
+                                                                checked=""><span>显示行号</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row"><label class="col-xs-4 col-md-4">代码字体</label>
+                                                    <div class="col-xs-8 col-md-8"><select name="font" id="font"
+                                                                                           class="form-control form-control-inverse">
+                                                        <option value="Courier">Courier</option>
+                                                        <option value="Courier New">Courier New</option>
+                                                        <option value="Consolas" selected="">Consolas</option>
+                                                        <option value="Droid Sans Mono">Droid Sans Mono</option>
+                                                        <option value="Fira Code">Fira Code</option>
+                                                        <option value="Inconsolata">Inconsolata</option>
+                                                        <option value="Lucida Sans Typewriter">Lucida Sans
+                                                            Typewriter</option>
+                                                        <option value="Menlo">Menlo</option>
+                                                        <option value="Source Code Pro">Source Code Pro</option>
+                                                    </select></div>
+                                                </div>
+                                                <div class="row"><label class="col-xs-4 col-md-4">字体大小</label>
+                                                    <div class="col-xs-8 col-md-8"><select name="fontSize"
+                                                                                           id="fontSize" class="form-control form-control-inverse">
+                                                        <option value="12">12px</option>
+                                                        <option value="13">13px</option>
+                                                        <option value="14">14px</option>
+                                                        <option value="16" selected="">16px</option>
+                                                        <option value="18">18px</option>
+                                                        <option value="20">20px</option>
+                                                    </select></div>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div><button
+                                            class="btn btn-outline btn-inverse border-2x btn-lg btn-block js-save-as-image"
+                                            data-before-save="scrollToViewPort"
+                                            data-filename="code-snapshot">保存代码截图</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </section>
+    <script> var scripts = [], styles = []; scripts.push("out/js/88f1c2ef33bf10f5a6cb07db72107e88.js"); styles.push("out/style/c3f92d524fe90e7ab0aac823355e2718.css"); </script>
+</main>
+
+
+</body>
+</html>
